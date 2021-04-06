@@ -109,40 +109,6 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.xolstice.maven.plugins</groupId>
-                <artifactId>protobuf-maven-plugin</artifactId>
-                <version>${protobuf.plugin.version}</version>
-                <configuration>
-                    <protocArtifact>
-                        com.google.protobuf:protoc:${protoc.version}:exe:${os.detected.classifier}
-                    </protocArtifact>
-                    <pluginId>grpc-java</pluginId>
-                    <pluginArtifact>
-                        io.grpc:protoc-gen-grpc-java:${protoc.grpc.java.version}:exe:${os.detected.classifier}
-                    </pluginArtifact>
-                    <protoSourceRoot>
-                        ${basedir}/src/main/proto/
-                    </protoSourceRoot>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>protobuf-compilation</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>grpc-compilation</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>compile-custom</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>${clean.version}</version>
@@ -157,14 +123,6 @@
                 </executions>
             </plugin>
         </plugins>
-
-        <extensions>
-            <extension>
-                <groupId>kr.motd.maven</groupId>
-                <artifactId>os-maven-plugin</artifactId>
-                <version>${os.plugin.version}</version>
-            </extension>
-        </extensions>
     </build>
 
 </project>
